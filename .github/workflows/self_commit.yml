@@ -7,7 +7,7 @@ name: CI
 on:
   # 5分毎に実行
   schedule:
-    - cron:  '33 * * * *'
+    - cron: '35 0 * * *'
 
   # Allows you to run this workflow manually from the Actions tab
   # [アクション]タブからこのワークフローを手動で実行できます
