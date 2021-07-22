@@ -6,7 +6,7 @@ name: CI
 # ワークフローをいつ実行するかを制御します
 on:
   push:
-    branches: [ * ]
+    branches: '*'
   # 5分毎に実行
   schedule:
     - cron: '*/5 * * * *'
