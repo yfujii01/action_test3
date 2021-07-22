@@ -7,11 +7,7 @@ name: CI
 on:
   # 5分毎に実行
   schedule:
-    - cron: '35 0 * * *'
-
-  # Allows you to run this workflow manually from the Actions tab
-  # [アクション]タブからこのワークフローを手動で実行できます
-  workflow_dispatch:
+    - cron: '40,45 * * * *'
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 # ワークフローの実行は、順次または並行して実行できる1つ以上のジョブで構成されます
