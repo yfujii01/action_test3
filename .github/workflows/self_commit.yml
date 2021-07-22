@@ -5,6 +5,8 @@ name: CI
 # Controls when the workflow will run
 # ワークフローをいつ実行するかを制御します
 on:
+  push:
+    branches: [ * ]
   # 5分毎に実行
   schedule:
     - cron: '*/5 * * * *'
@@ -37,4 +39,4 @@ jobs:
         run: |
           git add .
           git commit -m "action self commit!" -a
-          git push origin main
+          git push origin
