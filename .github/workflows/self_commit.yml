@@ -1,0 +1,45 @@
+# This is a basic workflow to help you get started with Actions
+# これは、アクションの開始に役立つ基本的なワークフローです。
+name: CI
+
+# Controls when the workflow will run
+# ワークフローをいつ実行するかを制御します
+on:
+  # Triggers the workflow on push or pull request events but only for the main branch
+  # プッシュまたはプルリクエストイベントでワークフローをトリガーしますが、メインブランチに対してのみトリガーします
+  push:
+    branches: [ main ]
+
+  # Allows you to run this workflow manually from the Actions tab
+  # [アクション]タブからこのワークフローを手動で実行できます
+  workflow_dispatch:
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+# ワークフローの実行は、順次または並行して実行できる1つ以上のジョブで構成されます
+jobs:
+  # This workflow contains a single job called "build"
+  # このワークフローには、「ビルド」と呼ばれる単一のジョブが含まれています
+  build:
+    # The type of runner that the job will run on
+    # ジョブが実行されるランナーのタイプ
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    # ステップは、ジョブの一部として実行される一連のタスクを表します
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      # $GITHUB_WORKSPACEの下のリポジトリをチェックアウトして、ジョブがリポジトリにアクセスできるようにします
+      - uses: actions/checkout@v2
+
+      - name: 現在時刻をファイルにセット
+        run: |
+          date > action_self.txt
+      - name: git setting
+        run: |
+          git config --local user.email "github.action@no.reply"
+          git config --local user.name "github actions user"
+      - name: Commit files
+        run: |
+          git add .
+          git commit -m "action self commit!" -a
+          git push origin main
